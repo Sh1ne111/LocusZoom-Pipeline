@@ -8,17 +8,17 @@
 
 ![HORVU7Hr1G119370](Fig/chr5.png "HORVU7Hr1G119370")
 
- #### Estimate recombination rates from population genetic data  
+### Estimate recombination rates from population genetic data  
  
- ##### phased your genotypy first 
- ```java
+#### phased your genotypy first or not 
+```java
   $ java -jar beagle.11Mar19.69c.jar gt=pop.recode.vcf.gz out=pop.phased.vcf.gz
-  ```
+```
 * if your genotype already phased 
-  ```perl
+```perl
   $ perl get.FastEPRR.pl -vcf pop.recode.vcf -out pop.phased.vcf 
-  ```
+```
 * change the name chr(chart) to numric 
-  ```linux
+```linux
   $ less pop.recode.vcf |perl -ne 'chomp;if(/#/){print "$_\n"}else{($chr,$all)=split/\s+/,$_,2;$chr=~s/chr//g;print "$chr\t$all\n"}' > pop.vcf
-  ```
+```
