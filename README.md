@@ -60,5 +60,10 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     ```linux
     $ less recomb_rate.table |sed 's/\s/\t/g' > recomb_rate.delimiter.table && python dbmeister.py --db barley.db --recomb_rate recomb_rate.delimiter.table
     ```
+
 ### optimization your own plot 
+
+```python
+$ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flank 20MB  --build by38 --pop BARLEY --source 1000G_July2019
+```
 
