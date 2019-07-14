@@ -44,7 +44,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     ```r
     Rscipt rho.R --input ./
     ```
-* finished
+* after finished
     ```perl
     $ perl get.gasteprr.result.pl -int ./ -out fasteprr.result
     ```
