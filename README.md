@@ -42,7 +42,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     ```
 * Estimate recombination rates using the FastEPRR packages
     ```r
-    Rscipt rho.R --input ./
+    $ Rscipt rho.R --input ./
     ```
 * after finished
     ```perl
