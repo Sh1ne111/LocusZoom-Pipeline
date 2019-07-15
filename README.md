@@ -38,7 +38,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     ```
 * after phased , split your pop.phased.vcf with single chromosome to VCF dir
     ```linux
-    $ less list |perl -ne 'chomp;`vcftools --vcf pop.all.vcf --chr $_ --recode --out pop.$_.vcf.gz && gzip pop.$_.vcf.gz`'
+    $ less list |perl -ne 'chomp;`vcftools --vcf pop.vcf --chr $_ --recode --out pop.$_.vcf.gz && gzip pop.$_.vcf.gz`'
     ```
 * Estimate recombination rates using the FastEPRR packages
     ```r
