@@ -1,6 +1,6 @@
 ## LocusZoom Pipeline visualization of GWAS (eQTL, EGWAS and TGWAS) results for research and publication 
 
-  [LocusZoom](http://locuszoom.org/) is amazing tool for dataViz. It is so comfortable to visual human species GWAS or metal GWAS result etc, though. The author didn't provided a tool to how to prepare the refflat table like UCSC brower format. Here, for some work i wrote a pipeline to get the refFlat tabel and snp.pos from any species and only need you provide the annotation of genome (genome annotation file from the NCBI or ensembl or somewhere reasonable) and the SNP calling vcf file from your are interested in research area.
+  [LocusZoom](http://locuszoom.org/) is amazing tool for dataViz. It is so comfortable to visual human species GWAS or metal GWAS result ...etc, though. The author didn't provided a tool to how to prepare the refflat table like UCSC brower format. Here, for some work i wrote a pipeline to get the refFlat tabel and snp.pos from any species and only need you provide the annotation of genome (genome annotation file from the NCBI or ensembl or somewhere reasonable) and the SNP calling vcf file from your are interested in research area.
 ### Here was two eQTLs result 
 1. LocusZoom plot for barley eQTL(chr2:14981819) result with gene: HORVU0Hr1G019610 
 
