@@ -41,7 +41,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     $ less list |perl -ne 'chomp;`vcftools --vcf pop.vcf --chr $_ --recode --out pop.$_.vcf.gz && gzip pop.$_.vcf.gz`'
     ```
 * Estimate recombination rates using the FastEPRR packages
-    ```r
+    ```linux
     $ Rscipt rho.R --input ./
     ```
 * after finished
