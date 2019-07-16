@@ -17,7 +17,7 @@
 $ nohup qsub perl refflat.pipeline.pl -gff ref.gff -out ./ &
 ```
 * The pipeline will get snn.pos and refflat.tbale, then
-```python
+```linux
 $ python dbmeister.py --db barley.db --snp_pos snp.pos
 $ python dbmeister.py --db barley.db --refflat refflat.table
 ```
@@ -53,7 +53,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     $ perl get.rho.result.pl -result fasteprr.result -vcf pop.recode.vcf -out recomb_rate.table
     ```
 * then
-    ```python
+    ```linux
     $ python dbmeister.py --db barley.db --recomb_rate recomb_rate.table
     ```
 - if you got Error: file recomb_rate.table does not have tthe proper number of columns (or your delimiter is incorrect.) 
@@ -63,7 +63,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
 
 ### optimization your own plot 
 
-```python
+```linux
 $ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flank 20MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup
 ```
 
