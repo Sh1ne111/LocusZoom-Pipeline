@@ -56,7 +56,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     ```linux
     $ python dbmeister.py --db barley.db --recomb_rate recomb_rate.table
     ```
-- if you got Error: file recomb_rate.table does not have tthe proper number of columns (or your delimiter is incorrect.) 
+- if you got Error: file recomb_rate.table does not have the proper number of columns (or your delimiter is incorrect.) 
     ```linux
     $ less recomb_rate.table |sed 's/\s/\t/g' > recomb_rate.delimiter.table && python dbmeister.py --db barley.db --recomb_rate recomb_rate.delimiter.table
     ```
