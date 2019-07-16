@@ -1,10 +1,12 @@
-# LocusZoom Pipeline Project for any  with reference species
+## LocusZoom Pipeline visualization of GWAS (eQTL, EGWAS and TGWAS) results for research and publication 
 
-#### LocusZoom plot for barley eQTL result with gene: HORVU0Hr1G019610 
+  [LocusZoom](http://locuszoom.org/) is amazing tool for dataViz. It is so comfortable to visual human species GWAS or metal GWAS result etc, though. The author didn't provided a tool to how to prepare the refflat table like UCSC brower format. Here, for some work i wrote a pipeline to get the refFlat tabel and snp.pos from any species and only need you provide the annotation of genome (genome annotation file from the NCBI or ensembl or somewhere reasonable) and the SNP calling vcf file from your are interested in research area.
+### Here was two eQTLs result 
+1. LocusZoom plot for barley eQTL(chr2:14981819) result with gene: HORVU0Hr1G019610 
 
 ![HORVU0Hr1G019610](Fig/chr2_6981819-22981819-1.png "HORVU0Hr1G019610")
 
-#### LocusZoom plot for barley eQTL result with gene: HORVU7Hr1G119370
+2. LocusZoom plot for barley eQTL(chr5:135426027) result with gene: HORVU7Hr1G119370
 
 ![HORVU7Hr1G119370](Fig/chr5_115426027-155426027-1.png "HORVU7Hr1G119370")
 
@@ -56,7 +58,7 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
     ```linux
     $ python dbmeister.py --db barley.db --recomb_rate recomb_rate.table
     ```
-- if you got Error: file recomb_rate.table does not have the proper number of columns (or your delimiter is incorrect.) 
+- if you got Error: file recomb_rate.table does not have tthe proper number of columns (or your delimiter is incorrect.) 
     ```linux
     $ less recomb_rate.table |sed 's/\s/\t/g' > recomb_rate.delimiter.table && python dbmeister.py --db barley.db --recomb_rate recomb_rate.delimiter.table
     ```
@@ -66,4 +68,3 @@ $ python dbmeister.py --db barley.db --refflat refflat.table
 ```linux
 $ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flank 20MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup
 ```
-
