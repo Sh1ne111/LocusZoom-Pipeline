@@ -12,7 +12,7 @@
 
 #### Inserting refFlat
 > The [refFlat](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as) table mirrors what is currently supplied by the refFlat table in the UCSC database. 
-- you need too qsub my Pipeline,cs will take a while for get the reffalt table, if your species reference genome was big,then will taken more time to get the refFlat table. my demo was the [barley](ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/hordeum_vulgare) genome and needs more five hours.
+- You need to qsub my Pipeline, cause will take a while for get the reffalt table, if your species wiht a big reference genome, then will take more time to it. my demo was the [barley](ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/hordeum_vulgare) genome and needs more than five hours.
 ```linux
 $ nohup qsub perl refflat.pipeline.pl -gff ref.gff -out ./ &
 ```
