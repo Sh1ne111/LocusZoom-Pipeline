@@ -20,6 +20,7 @@ GetOptions(
 	"stop:s"=>\$stop,
 			) or &USAGE;
 &USAGE unless ($gff and $chrlist and $vcf);
+
 $fout=ABSOLUTE_DIR($fout);
 $queue||="sh";
 $step ||=1;
