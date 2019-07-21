@@ -144,7 +144,7 @@ def get_settings():
 # Check a file for proper format.
 # Cols is a list denoting each column's name.
 # If format is incorrect, returns (False,"explanation"), otherwise (True,None).
-def check_file(file,cols,delim="\t"):
+def check_file(file,cols,delim="\t"):#"\t"
   try:
     f = open(file,"U");
   except:
@@ -152,9 +152,12 @@ def check_file(file,cols,delim="\t"):
     return False;
     
   header = f.readline().strip();
-  header_s = header.split(delim);
-  
+  #print(header)
+  header_s = header.split(delim);#delim
+  #print(header_s)
   # Header should have same number of columns as cols. 
+  print(cols)
+  print(header_s)
   if len(header_s) != len(cols):
     get_log().error("Error: file %s does not have the proper number of "
                    "columns (or your delimiter is incorrect.)" % file);
@@ -176,7 +179,7 @@ def check_file(file,cols,delim="\t"):
   i = 0;
   num_lines = 50;
   for line in f:
-    e = line.split(delim);
+    e = line.split(delim);#delim
     if len(e) != len(cols):
       get_log().error("Error: line %i did not have the expected number of columns. "
                      "Your delimiter may be incorrect, or you may have missing data.");
