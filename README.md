@@ -144,3 +144,6 @@ $ ./bin/locuszoom --metal test/HORVU7Hr1G119370.meta --refsnp chr2:14981819 --fl
 ```
 
 ![HORVU7Hr1G119370](Fig/chr2_6981819-22981819_bed.png "HORVU7Hr1G119370")
+
+####  Contact
+> If you try to use this pipeline AND meet any bugs OR errors. Please feel free to send me any suggestion AND questions [Meng Luo](czheluo@gmail.com) 
