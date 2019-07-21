@@ -83,7 +83,8 @@ $ less list(a chromesome list for your specie) |perl -ne 'chomp;`vcftools --vcf 
 ```
 > After get all chrs vcf files, you just can run my R pipeline code as following : 
 ```linux
-# See the usage firt!
+
+> See the usage firt!
 
 $ Rscipt rho.R 
 
