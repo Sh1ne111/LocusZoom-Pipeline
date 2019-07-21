@@ -82,10 +82,9 @@ $ less *.vcf |perl -ne 'chomp;if(/#/){print "$_\n"}else{($chr,$all)=split/\s+/,$
 $ less list(a chromesome list for your specie) |perl -ne 'chomp;`vcftools --vcf pop.vcf --chr $_ --recode --out pop.$_.vcf.gz && gzip pop.$_.vcf.gz`'
 ```
 > After get all chrs vcf files, you just can run my R pipeline code as following : 
+
 ```linux
-
-> See the usage firt!
-
+$ See the usage first!
 $ Rscipt rho.R 
 
 Usage: rho.R [-[-input|i] <character>] [-[-output|o]] [-[-wl|l] <character>] [-[-wd|d] <character>] [-[-nj|n] <character>] [-[-cj|c] <character>] [-[-set|s] <character>] [-[-help|h]]
