@@ -322,14 +322,27 @@ publication.theme <- ryan.theme;
 pub.theme <- ryan.theme;
 
 black.theme <- function(args) {
+  library(RColorBrewer)
+  color <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+  rcolor <- color[sample(1:length(color), length(color))]
   argUpdates <- list(
     axisTextColor='black',
-    rugColor='black',
+    rugColor=rcolor[1],#'black',
     frameColor='black'
   )
   return(ModifyList(args,argUpdates));
 }
-
+colors.theme <- function(args) {
+  library(RColorBrewer)
+  color <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+  rcolor <- color[sample(1:length(color), length(color))]
+  argUpdates <- list(
+    axisTextColor='black',
+    rugColor=rcolor[1],
+    frameColor='black'
+  )
+  return(ModifyList(args,argUpdates));
+}
 giant.theme <-  function(args) {
   argUpdates <- list(
     rfrows=10,
@@ -346,6 +359,7 @@ giant.theme <-  function(args) {
 
   args <- ryan.theme(args);
   args <- black.theme(args);
+  args <- colors.theme(args);
   args <- ModifyList(args,argUpdates);
   return(args);
 }
@@ -1180,6 +1194,7 @@ make.gene.list <-  function (flat, showIso=TRUE, subset, unit, ...)
 #############################################################
 #
 # display genes taking data from flattened bed format
+# modified by MENG
 #
 panel.flatbed <- function (
   x=NULL, 
@@ -1188,7 +1203,7 @@ panel.flatbed <- function (
   fill = "navy", 
   col = "navy", 
   alpha = 1, 
-  textcol='black',
+  #textcol='red',
   multiplier = 0.001, 
   height = 2/14, 
   buffer=0.003, 
@@ -1198,7 +1213,11 @@ panel.flatbed <- function (
   showPartialGenes=FALSE,
   shiftGeneNames=TRUE,
   computeOptimalRows=FALSE, ...) 
-{      
+{
+  library(RColorBrewer)
+  color <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+  rcolor <- color[sample(1:length(color), length(color))]
+  textcol <- rcolor[1]    
   if ( prod(dim(flat)) <= 0 ) { return(1); }
 
   df <- flat;
@@ -1693,9 +1712,26 @@ panel.bed <- function(bed_data,track_height,startbp,endbp) {
       bed_data[is_white,]$color = "#E5E5E5";
     }
   } else {
-    bed_data$color = "black";
+    nco.bed <- length(unique(bed_data[,4])) 
+    #print(nco.bed)
+    library(RColorBrewer)
+    RCcolor <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+    rcolor <- RCcolor[sample(1:length(RCcolor), length(RCcolor))]
+    #"yellow";#black
+    is_white = bed_data$color == "#FFFFFF";
+    if (any(is_white)) {
+      bed_data[is_white,]$color = "#E5E5E5";
+    }
+    nco <- rcolor[c(1:nco.bed)]
+    ncolor<-NULL
+    for (i in 1:nco.bed){
+      ncolor[which(bed_data[,4] %in% unique(bed_data[,4])[i])] <- nco[i]
+    }
+    bed_data$color <- ncolor   
   }  
-  
+  #RCcolor <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+  #rcolor <- RCcolor[sample(1:length(RCcolor), length(RCcolor))]
+  #bed_data$color = rcolor[1]#"yellow";#black 
   startbp = startbp / 1E6;
   endbp = endbp / 1E6;
     
@@ -1730,7 +1766,10 @@ panel.bed <- function(bed_data,track_height,startbp,endbp) {
     
     #bed_sub$y0 = y_mid - (0.25 * track_height);
     #bed_sub$y1 = y_mid + (0.25 * track_height);
-        
+    # 
+    library(RColorBrewer)
+    RCcolor <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+    rcolor <- RCcolor[sample(1:length(RCcolor), length(RCcolor))]  
     grid.rect(
       x = unit(bed_sub$start,'native'),
       y = unit(y_mid,'lines'),
@@ -2787,6 +2826,7 @@ zplot <- function(metal,ld=NULL,recrate=NULL,refidx=NULL,nrugs=0,postlude=NULL,a
   }
 
   ########## rugs for snpsets
+  ### modified by MENG
   pushViewport(viewport(
     xscale=pvalVp$xscale,
     layout.pos.row=3,
@@ -2794,14 +2834,26 @@ zplot <- function(metal,ld=NULL,recrate=NULL,refidx=NULL,nrugs=0,postlude=NULL,a
     name="rugs",
     clip="off")
   );
-      
+  library(RColorBrewer)
+  color <- grDevices::colors()[grep("gr(a|e)y", grDevices::colors(), invert = T)]
+  rcolor <- color[sample(1:length(color), length(color))]
+  rugColor <- rcolor[10]
   i <- nrugs;
   for (snpset in levels(rug$snp_set)) {
-    grid.text(as.character(snpset),x=unit(-.25,"lines"),
-        y=(i-.5)/nrugs, just="right",
-        gp=gpar(col=args[['rugColor']], alpha=args[['rugAlpha']],cex=.90*args[['axisTextSize']])
-        );
+    if (is.null(args[['rugColor']])){
+      grid.text(as.character(snpset),x=unit(-.25,"lines"),
+         y=(i-.5)/nrugs, just="right",
+         gp=gpar(col=rugColor, alpha=args[['rugAlpha']],cex=.90*args[['axisTextSize']])
+         );
     i <- i-1;
+    }else{
+      grid.text(as.character(snpset),x=unit(-.25,"lines"),
+         y=(i-.5)/nrugs, just="right",
+         gp=gpar(col=args[['rugColor']], alpha=args[['rugAlpha']],cex=.90*args[['axisTextSize']])
+         );
+    i <- i-1;      
+    }
+
   }
 
   pushViewport(viewport(
@@ -2814,16 +2866,26 @@ zplot <- function(metal,ld=NULL,recrate=NULL,refidx=NULL,nrugs=0,postlude=NULL,a
   
   i <- nrugs;
   for (snpset in levels(rug$snp_set)) {
-    panel.rug( rug[ which(rug$snp_set==snpset), "pos" ] , 
-      start = (i-1)/(nrugs) + (.15/nrugs),
-      end = (i)/(nrugs) - (.15/nrugs),
-      y.units=rep("native",2),
-      col=args[['rugColor']],
-      alpha=args[['rugAlpha']]
-      );
-    i <- i-1;
+    if (is.null(args[['rugColor']])){
+      panel.rug( rug[ which(rug$snp_set==snpset), "pos" ] , 
+        start = (i-1)/(nrugs) + (.15/nrugs),
+        end = (i)/(nrugs) - (.15/nrugs),
+        y.units=rep("native",2),
+        col=rugColor,
+        alpha=args[['rugAlpha']]
+        );
+      i <- i-1;
+    }else{
+      panel.rug( rug[ which(rug$snp_set==snpset), "pos" ] , 
+        start = (i-1)/(nrugs) + (.15/nrugs),
+        end = (i)/(nrugs) - (.15/nrugs),
+        y.units=rep("native",2),
+        col=args[['rugColor']],
+        alpha=args[['rugAlpha']]
+        );
+      i <- i-1;     
+    }
   }
-
   upViewport(2);
 
   if(args[['fmrows']] > 0) {
@@ -3257,7 +3319,7 @@ default.args <- list(
   theme = NULL,                         # select a theme (collection of settings) for plot
   experimental = FALSE,                 # try some experimental features?
   pquery = FALSE,                       # is pquery available?
-  format = "pdf",                       # file format (pdf or png or both)
+  format = c("png","pdf"),                       # file format (pdf or png or both)
   recombTable = "results.recomb_rate",  # Recomb Rate Table (for SQL)
   clean=TRUE,                           # remove temp files?
   build = "hg18",                       # build to use for position information
@@ -3312,9 +3374,9 @@ default.args <- list(
   titleCex = 2,                         # size change for title
   thresh = 1,                           # only get pvalues <= thresh   # this is now ignored.
   width = 10,                           # width of pdf (inches)
-  height = 7,                           # height of pdf (inches)
-  leftMarginLines = 5,                  # margin (in lines) on left
-  rightMarginLines = 5,                 # margin (in lines) on right
+  height = 10,                           # height of pdf (inches)
+  leftMarginLines = 6,                  # margin (in lines) on left
+  rightMarginLines = 12,                 # margin (in lines) on right
   unit=1000000,                         # bp per unit displayed in plot
   ldTable = "results.ld_point6",        # LD Table (for SQL)
   annot=NULL,                           # file for annotation 
@@ -3351,9 +3413,9 @@ default.args <- list(
   shiftGeneNames = TRUE,                # should genes that don't fit completely be displayed?
   geneFontSize = .8,                    # size for gene names
   geneColor = "navy",                   # color for genes
-  snpset = "Affy500,Illu318,HapMap",    # SNP sets to show
+  snpset = "Affy500,Illu318,HapMap,snp_density",    # SNP sets to show
   snpsetFile = NULL,                    # use this file for SNPset data (instead of pquery)
-  rugColor = "gray30",                  # color for snpset rugs
+  rugColor = NULL,                  # color for snpset rugs
   rugAlpha = 1,                         # alpha for snpset rugs
   metalRug = NULL,                      # if not null, use as label for rug of metal positions
   refFlat = NULL,                       # use this file with refFlat info (instead of pquery)
