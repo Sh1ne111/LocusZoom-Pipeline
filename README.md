@@ -123,7 +123,7 @@ $ python dbmeister.py --db barley.db --recomb_rate recomb_rate.table
 $ less recomb_rate.table |sed 's/\s/\t/g' > recomb_rate.delimiter.table && python dbmeister.py --db barley.db --recomb_rate recomb_rate.delimiter.table
 ```
 ### Optimization your own plot
-> Which the althor already provided mutiple [LocusZoom options](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) for what you want to change the Figs. But those not for mine. So i have made slightly changed in locuszoom.R and the details as following.
+> Which the author already provided mutiple [LocusZoom options](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) for what you want to change the Figs. But those not for mine. So i have made slightly changed in locuszoom.R and the details as following.
 
 > I have changed the output Figure for both PDF and PNG , and also the set color which will generate a random color (from the [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)  and will add the [ggsci](https://nanx.me/ggsci/articles/ggsci.html)) for snpset in locuszoom.R.
 > 
