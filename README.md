@@ -125,7 +125,7 @@ $ less recomb_rate.table |sed 's/\s/\t/g' > recomb_rate.delimiter.table && pytho
 ### Optimization your own plot
 > Which the author already provided mutiple [LocusZoom options](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone) for what you want to change the Figs. But those not for mine. So i have made slightly changed in locuszoom.R and the details as following.
 
-> I have changed the output Figure for both PDF and PNG , and also the set color which will generate a random color (from the [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)  and will add the [ggsci](https://nanx.me/ggsci/articles/ggsci.html)) for snpset in locuszoom.R.
+> I have changed the output Figure for both PDF and PNG , and also the set color which will generate a random color (from the [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)  and add the [ggsci](https://nanx.me/ggsci/articles/ggsci.html)) for snpset in locuszoom.R.
 > 
 ```linux
 $ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flank 20MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup  --delim space --snpset SNP_density
