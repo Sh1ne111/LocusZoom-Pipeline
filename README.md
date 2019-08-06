@@ -40,7 +40,7 @@ Usage:
 
 ```
 
-> QUEUE THE Pipeline 
+#### QUEUE THE Pipeline 
 
 ```linux
 $ nohup qsub perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.recode.vcf -out ./ &
