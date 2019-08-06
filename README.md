@@ -59,17 +59,16 @@ $ python dbmeister.py --db locuszoom_by38.db --snp_set snp.set
 ```
 
 ### Estimating recombination rates from population genetic data  
-> Currently, there are several popular softwares to calculate recombination rates which like [FastEPRR](http://www.picb.ac.cn/evolgen/softwares/FastEPRR.html), [LDhat](https://github.com/auton1/LDhat), and [MLrho](http://guanine.evolbio.mpg.de/mlRho/). Here, i will take the FastEPRR as example. For the detail introduction see [here](http://www.picb.ac.cn/evolgen/softwares/download/FastEPRR/FastEPRR2.0/FastEPRR_manual.pdf). Mainly include three steps, and before you need know your genotype was phased or not. if not, and you need to phase before running. Here, i using the [beagle](https://faculty.washington.edu/browning/beagle/beagle.html) for imputation and phased see following the details.
+> Currently, there are several popular softwares to calculate recombination rates which like [FastEPRR](http://www.picb.ac.cn/evolgen/softwares/FastEPRR.html), [LDhat](https://github.com/auton1/LDhat), and [MLrho](http://guanine.evolbio.mpg.de/mlRho/). Here, i will take the FastEPRR as example. For the detail introduction see [here](http://www.picb.ac.cn/evolgen/softwares/download/FastEPRR/FastEPRR2.0/FastEPRR_manual.pdf). Mainly include three steps, and before you need know your genotype was phased or not. if not, and you need to phase before running. Here, i using the [beagle](https://faculty.washington.edu/browning/beagle/beagle.html) for imputation and phased. Coded as following :
 
 ```linux
 $ java -jar beagle.11Mar19.69c.jar gt=pop.recode.vcf.gz out=pop.phased.vcf.gz
 ```
 > If your genotype already phased and impution, i wrote a perl script for get the data format for FastEPRR format from your vcf genotype file.
- 
+
 ```linux
 $ perl get.FastEPRR.pl -vcf pop.recode.vcf -out pop.phased.vcf 
 ```
-
 > Make sure your chromesome in your vcf files AS numeric. If not, you can run a one liner perl for changing the string to numeric, as like:
 
 ```linux
@@ -85,7 +84,7 @@ $ less list(a chromesome list for your specie) |perl -ne 'chomp;`vcftools --vcf 
 
 ```linux
 $ See the usage first!
-$ Rscipt rho.R 
+$ Rscript rho.R 
 
 Usage: rho.R [-[-input|i] <character>] [-[-output|o]] [-[-wl|l] <character>] [-[-wd|d] <character>] [-[-nj|n] <character>] [-[-cj|c] <character>] [-[-set|s] <character>] [-[-help|h]]
 Usage example:
