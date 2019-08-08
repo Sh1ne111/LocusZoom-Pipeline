@@ -140,9 +140,16 @@ $ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flan
 ```linux
 $ gff2bed < ref.gff > ref.bed && perl get.bed.pl -bed ref.bed -out ref.flab.bed
 $ ./bin/locuszoom --metal test/HORVU7Hr1G119370.meta --refsnp chr2:14981819 --flank 8MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
+$ ./bin/locuszoom --metal HORVU0Hr1G000080.metal --refsnp chr6:115163666 --flank 25MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
+$ ./bin/locuszoom --metal HORVU0Hr1G000080.metal --refsnp chr7:640490942 --flank 25MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='left'
 ```
 
 ![HORVU7Hr1G119370](Fig/chr2_6981819-22981819_bed.png "HORVU7Hr1G119370")
+
+![HORVU7Hr1G119370](Fig/Fig/chr6_90163666-140163666.png "HORVU7Hr1G119370")
+
+![HORVU7Hr1G119370](Fig/chr7_615490942-665490942.png "HORVU7Hr1G119370")
+
 
 ####  Contact
 > If you try to use this pipeline AND meet any bugs OR errors. Please feel free to send me any suggestion AND questions [Meng Luo](czheluo@gmail.com) 
