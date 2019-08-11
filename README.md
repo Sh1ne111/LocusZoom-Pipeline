@@ -100,7 +100,8 @@ Usage example:
       --set Rho values of training set (default :0.0, 0.5, 1.0, 2.0, 5.0,  10.0,  20.0,  40.0,  70.0,  110.0,  170.0)
       --help            usage
 
-$ nohup Rscript rho.R --input ./ --output result &
+$ Rscript rho.R --input /mnt/i/MAJORBIO/Pipeline/RNA/locuszoom/RR/ --output /mnt/i/MAJORBIO/Pipeline/RNA/locuszoom/RRresul
+
 ```
 
 > After finished, you will get mutiple folders, and looks like : 
