@@ -1,4 +1,4 @@
-## LocusZoom Pipeline visualization of GWAS (eQTL, EWAS TWAS and MWAS)  regional results for research and publication 
+## LocusZoom Pipeline visualization of GWAS (eQTL, EWAS TWAS and MWAS)  regional results for research and publication <a href="Fig/locuszoom.png"><img src="Fig/locuszoom.png" align="right" alt="logo" height="220" width="250" /></a>
 
   [LocusZoom](http://locuszoom.org/) is amazing tool for dataViz. It is so comfortable to visual human species GWAS or metal GWAS result etc, though. The author didn't provided a tool to how to prepare the refflat table like UCSC brower format. Cause the project needed, here, i wrote a pipeline to get the refFlat tabel and snp.pos and snp.set from any species and only need you to provide the annotation of genome (genome annotation file from the NCBI or ensembl or somewhere reasonable) and the SNP calling vcf file from your are interested in research result. And a pipleine for calculating the recombination rates also for any species. The details as following:
 
