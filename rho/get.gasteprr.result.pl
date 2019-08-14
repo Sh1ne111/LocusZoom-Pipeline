@@ -63,7 +63,7 @@ Contact:        meng.luo\@majorbio.com;
 Script:			$Script
 Description:
 
-	eg:perl $Script -int ./ -out fasteprr.result
+	eg:perl $Script -int RRresult/RRresult/ -out fasteprr.result
 	
 
 Usage:
