@@ -69,9 +69,8 @@ Contact:        meng.luo\@majorbio.com;
 Script:			$Script
 Description:
 
-	eg:perl $Script -int ./ -out fasteprr.result
+	eg:perl $Script -result fasteprr.result -vcf pop.vcf -out rcomb.rate.result
 	
-
 Usage:
   Options:
 	"result:s"=>\$fin,
