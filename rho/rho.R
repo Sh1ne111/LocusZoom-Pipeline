@@ -42,21 +42,22 @@ if (is.null(opt$output)){print_usage(spec)}
 if(is.null(opt$wl)){opt$wl=500000;print(opt$wl)}
 if(is.null(opt$wd)){opt$wd=10;print(opt$wd)}
 if(is.null(opt$nj)){opt$nj=1;print(opt$nj)}
-if(is.null(opt$cj)){opt$wd=1;print(opt$cj)}
+if(is.null(opt$cj)){opt$cj=1;print(opt$cj)}
 if(is.null(opt$set)){opt$set="0.0; 0.5;1.0;2.0;5.0;10.0;20.0;40.0;70.0;110.0;170.0";print(opt$set)}
 times<-Sys.time()
 #setwd(opt$output)
 files <- list.files(opt$input) 
 for (i in 1:length(files)) {
-  dir.create(paste(opt$output,"result1","_chr",i,sep=""))
+  dir.create(paste(opt$output,"/result1","_chr",i,sep=""))
   FastEPRR_VCF_step1(vcfFilePath=paste(opt$input,files[i],sep = ""),
                      winLength =opt$wl, winDXThreshold = 5,
                      srcOutputFilePath=paste(opt$output,"/result1","_chr",i,"/chr",i,sep=""))
-  dir.create(paste(opt$output,"result2","_chr",i,sep=""))
+  dir.create(paste(opt$output,"/result2","_chr",i,sep=""))
+  #print(paste(opt$output,"/result2","_chr",i,sep=""))
   FastEPRR_VCF_step2(srcFolderPath=paste(opt$output,"/result1","_chr",i,sep=""),
                      jobNumber=opt$nj,currJob=opt$cj,trainingSet1  = opt$set,
                      DXOutputFolderPath=paste(opt$output,"/result2","_chr",i,sep=""))
-  dir.create(paste(opt$output,"result3","_chr",i,sep=""))
+  dir.create(paste(opt$output,"/result3","_chr",i,sep=""))
   FastEPRR_VCF_step3(srcFolderPath=paste(opt$output,"/result1","_chr",i,sep=""),
                      DXFolderPath=paste(opt$output,"/result2","_chr",i,sep=""),
                      finalOutputFolderPath=paste(opt$output,"/result3","_chr",i,sep=""))
@@ -66,4 +67,20 @@ escaptime<-Sys.time()-times;
 print("Done!");
 print(escaptime)
 
-
+# dir.create(file.path(opt$input, "VCF"))
+# setwd(file.path(opt$input, "VCF"))
+# files <- list.files() 
+# for (i in 1:length(files)) {
+#   dir.create(paste("result1","_chr",i,sep=""))
+#   FastEPRR_VCF_step1(vcfFilePath=paste(getwd(),"/VCF/",files[i],sep = ""),
+#                      winLength =500000, winDXThreshold = 5,
+#                      srcOutputFilePath=paste(getwd(),"/result1","_chr",i,"/chr",i,sep=""))
+#   dir.create(paste("result2","_chr",i,sep=""))
+#   FastEPRR_VCF_step2(srcFolderPath=paste(getwd(),"/result1","_chr",i,sep=""),
+#                      jobNumber=1,currJob=1,#trainingSet1  =  "0;0.5;1;5;10",
+#                      DXOutputFolderPath=paste(getwd(),"/result2","_chr",i,sep=""))
+#   dir.create(paste("result3","_chr",i,sep=""))
+#   FastEPRR_VCF_step3(srcFolderPath=paste(getwd(),"/result1","_chr",i,sep=""),
+#                      DXFolderPath=paste(getwd(),"/result2","_chr",i,sep=""),
+#                      finalOutputFolderPath=paste(getwd(),"/result3","_chr",i,sep=""))
+# }
