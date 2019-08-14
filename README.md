@@ -100,7 +100,17 @@ Usage example:
       --set Rho values of training set (default :0.0, 0.5, 1.0, 2.0, 5.0,  10.0,  20.0,  40.0,  70.0,  110.0,  170.0)
       --help            usage
 
-$ Rscript rho.R --input /mnt/i/MAJORBIO/Pipeline/RNA/locuszoom/RR/ --output /mnt/i/MAJORBIO/Pipeline/RNA/locuszoom/RRresul
+$ Rscript rho.R --input /mnt/ilustre/centos7users/meng.luo/project/test/rho/RR/ --output /mnt/ilustre/centos7users/meng.luo/project/test/rho/RRresult/
+$ tree -d 
+├── rho
+│   ├── RR
+│   ├── RRresult
+│   │   ├── result1_chr1
+│   │   ├── result1_chr2
+│   │   ├── result2_chr1
+│   │   ├── result2_chr2
+│   │   ├── result3_chr1
+│   │   ├── result3_chr2
 
 ```
 
