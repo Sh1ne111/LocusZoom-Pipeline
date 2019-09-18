@@ -57,6 +57,12 @@ $ python dbmeister.py --db barley.db --snp_pos snp.pos
 $ python dbmeister.py --db barley.db --refflat refflat.table  
 $ python dbmeister.py --db locuszoom_by38.db --snp_set snp.set
 ```
+### get refflat from gtf or gff3 file format
+You need install [ucsc-gtftogenepred]{https://anaconda.org/bioconda/ucsc-gtftogenepred}  and [gff3togenepred](https://anaconda.org/bioconda/ucsc-gff3togenepred) ,all tools [here](http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/).
+```linux
+#running code
+$ gtfToGenePred Mus_musculus.GRCm38.96.gtf Mus_musculus.GRCm38.96.pred && gff3ToGenePred Mus_musculus.GRCm38.96.gff3 Mus_musculus.GRCm38.96.pred && perl getrefflat.Pred.pl -int Mus_musculus.GRCm38.96.gene -out Mus_musculus.GRCm38.96.refflat
+```
 
 ### Estimating recombination rates from population genetic data  
 > Currently, there are several popular softwares to calculate recombination rates which like [FastEPRR](http://www.picb.ac.cn/evolgen/softwares/FastEPRR.html), [LDhat](https://github.com/auton1/LDhat), and [MLrho](http://guanine.evolbio.mpg.de/mlRho/). Here, i will take the FastEPRR as example. For the detail introduction see [here](http://www.picb.ac.cn/evolgen/softwares/download/FastEPRR/FastEPRR2.0/FastEPRR_manual.pdf). Mainly include three steps, and before you need know your genotype was phased or not. if not, and you need to phase before running. Here, i using the [beagle](https://faculty.washington.edu/browning/beagle/beagle.html) for imputation and phased. Coded as following :
