@@ -53,3 +53,4 @@ $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.rec
 
 ```linux
 $ python dbmeister.py --db barley.db --snp_pos snp.pos  
+```
