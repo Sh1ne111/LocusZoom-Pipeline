@@ -50,7 +50,7 @@ $ nohup qsub perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf po
 $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.recode.vcf -out ./ &
 ```
 
-> or a new sample way to get the reflattable, just using convert command coding
+> or a new sample way to get the reflattable, just using convert command  lines
 
 ```linux
 
