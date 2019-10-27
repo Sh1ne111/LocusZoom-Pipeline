@@ -143,5 +143,12 @@ $locuszoom --metal test/HORVU7Hr1G119370.meta --refsnp chr2:14981819 --flank 8MB
 ```
 
 ![HORVU7Hr1G119370](Fig/chr2_6981819-22981819_bed.png "HORVU7Hr1G119370")
+
+```linux
+$locuszoom --metal AGP50763.metal --refsnp chr4:578203670 --flank 20MB  --build bl38 --pop BARLEY --source 1000G_August2019 --no-cleanup  --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
+```
+
+![HORVU7Hr1G119370](Fig/1.png "AGP50763")
+
 ####  Contact
 > If you try to use this pipeline AND meet any bugs OR errors. Please feel free to send me any suggestion AND questions [Meng Luo](czheluo@gmail.com) 
