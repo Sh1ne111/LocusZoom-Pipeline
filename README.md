@@ -127,7 +127,7 @@ $ less recomb_rate.table |sed 's/\s/\t/g' > recomb_rate.delimiter.table && pytho
 > I have changed the output Figure for both PDF and PNG , and also the set color which will generate a random color (from the [RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/index.html)  and will add the [ggsci](https://nanx.me/ggsci/articles/ggsci.html)) for snpset in locuszoom.R.
 > 
 ```linux
-$ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flank 20MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup  --delim space --snpset SNP_density
+$ locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flank 20MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup  --delim space --snpset SNP_density
 # --snpset args (the name in your db snp_set name)
 ```
 
@@ -139,7 +139,7 @@ $ ./../bin/locuszoom --metal chr5_135426027.metal --refsnp chr5:135426027 --flan
 
 ```linux
 $ gff2bed < ref.gff > ref.bed && perl get.bed.pl -bed ref.bed -out ref.flab.bed
-$ ./bin/locuszoom --metal test/HORVU7Hr1G119370.meta --refsnp chr2:14981819 --flank 8MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
+$locuszoom --metal test/HORVU7Hr1G119370.meta --refsnp chr2:14981819 --flank 8MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
 ```
 
 ![HORVU7Hr1G119370](Fig/chr2_6981819-22981819_bed.png "HORVU7Hr1G119370")
