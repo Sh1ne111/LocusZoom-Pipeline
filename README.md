@@ -61,9 +61,9 @@ $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.rec
 
 
 ```linux
-$ python dbmeister.py --db barley.db --snp_pos snp.pos  
-$ python dbmeister.py --db barley.db --refflat refflat.table  
-$ python dbmeister.py --db locuszoom_by38.db --snp_set snp.set
+$ python dbmeister.py --db locuszoom_bl38.db --snp_pos snp.pos  
+$ python dbmeister.py --db locuszoom_bl38.db --refflat refflat.table  
+$ python dbmeister.py --db locuszoom_bl38.db --snp_set snp.set
 ```
 
 ### Estimating recombination rates from population genetic data  
