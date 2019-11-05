@@ -8,7 +8,7 @@
 
 ![HORVU0Hr1G019610](Fig/chr2_6981819-22981819-1.png "HORVU0Hr1G019610")
 
-1. LocusZoom plot for barley eQTL(chr5:135426027) regional result with gene: HORVU7Hr1G119370 10Mb window size.
+2. LocusZoom plot for barley eQTL(chr5:135426027) regional result with gene: HORVU7Hr1G119370 10Mb window size.
 
 ![HORVU7Hr1G119370](Fig/chr5_115426027-155426027-1.png "HORVU7Hr1G119370")
 
@@ -150,7 +150,7 @@ $ gff2bed < ref.gff > ref.bed && perl get.bed.pl -bed ref.bed -out ref.flab.bed
 $locuszoom --metal HORVU7Hr1G119370.meta --refsnp chr2:14981819 --flank 8MB  --build by38 --pop BARLEY --source 1000G_July2019 --no-cleanup --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
 ```
 
-**LocusZoom plot for barley eQTL(chr2:14981819) regional result with gene: HORVU7Hr1G119370 8Mb window size
+1. LocusZoom plot for barley eQTL(chr2:14981819) regional result with gene: HORVU7Hr1G119370 8Mb window size
 
 ![HORVU7Hr1G119370](Fig/chr2_6981819-22981819_bed.png "HORVU7Hr1G119370")
 
@@ -162,7 +162,7 @@ $locuszoom --metal AGP50763.metal --refsnp chr4:578203670 --flank 20MB  --build 
 ```linux
 $ locuszoom --metal HORVU0Hr1G000410.metal --refsnp chr3:641835852 --flank 20MB  --build bl38 --pop BARLEY --source 1000G_August2019 --no-cleanup  --snpset SNP_density --bed-tracks ../examples/ref.flab.bed legend='right'
 ```
-**LocusZoom plot for barley eQTL(chr3:641835852) regional result with gene: HORVU0Hr1G000410 20Mb window size
+2. LocusZoom plot for barley eQTL(chr3:641835852) regional result with gene: HORVU0Hr1G000410 20Mb window size
 
 ![HORVU7Hr1G119370](Fig/3.png "AGP50763")
 
