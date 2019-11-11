@@ -50,7 +50,7 @@ $ nohup qsub perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf po
 $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.recode.vcf -out ./ &
 ```
 
-> or a new sample way to get the reflattable, just using convert command  lines,which using [gff3ToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred)
+> or a new sample way to get the reflattable, just using convert command  lines,which using [gff3ToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred).
 
 ```linux
 $ gff3ToGenePred Mus_musculus.GRCm38.96.gff3 Mus_musculus.GRCm38.96.Pred && perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
@@ -64,6 +64,11 @@ $ gff3ToGenePred Mus_musculus.GRCm38.96.gff3 Mus_musculus.GRCm38.96.Pred && perl
 $ python dbmeister.py --db locuszoom_bl38.db --snp_pos snp.pos  
 $ python dbmeister.py --db locuszoom_bl38.db --refflat refflat.table  
 $ python dbmeister.py --db locuszoom_bl38.db --snp_set snp.set
+```
+> preparing the LD database
+
+```linux
+$ le chr.list |perl -ne 'chomp;`vcftools --vcf pop.vcf --chr $_ --recode --out pop.$_ |plink --vcf pop.$_.recode.vcf --make-bed --out $_ `'
 ```
 
 ### Estimating recombination rates from population genetic data  
