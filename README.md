@@ -53,7 +53,7 @@ $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.rec
 > or a new sample way to get the reflattable, just using convert command  lines
 
 ```linux
-$ perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
+$ gff3Topred Mus_musculus.GRCm38.96.gff3 Mus_musculus.GRCm38.96.Pred && perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
 
 ```
 
