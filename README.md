@@ -50,11 +50,11 @@ $ nohup qsub perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf po
 $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.recode.vcf -out ./ &
 ```
 
-> or a new sample way to get the reflattable, just using convert command  lines,which using [gff3ToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred).
+> or a new sample way to get the reflattable, just using convert command  lines, which using [gff3ToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred) or if you have gtf file format, and then using use [gtfToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred)
 
 ```linux
 $ gff3ToGenePred Mus_musculus.GRCm38.96.gff3 Mus_musculus.GRCm38.96.Pred && perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
-
+$ gtfToGenePred Mus_musculus.GRCm38.96.gtf Mus_musculus.GRCm38.96.Pred && perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
 ```
 
 >The pipeline will generate snp.pos, snp.set and refflat.tbale files for you to build YOUR database, excuting as following, and for details click [here](https://genome.sph.umich.edu/wiki/LocusZoom_Standalone).
