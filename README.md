@@ -16,7 +16,7 @@
 
 #### How to get the refFlat and snp position table
 
-> The [refFlat](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as) table mirrors what is currently supplied by the UCSC database, [format](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as). You need to qsub my Pipeline, cause it will take a while for get the reffalt table, if your species with a big reference genome, then will take more time to get the data result. my demo was the  [barley](ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/hordeum_vulgare) specie and needs more than five hours to finish. And i will add a simple that get the refflab quickly than this pipeline first step which using Python Script (in bin dir).
+> The [refFlat](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as) table mirrors what is currently supplied by the UCSC database, [format](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as). You need to qsub my Pipeline, cause it will take a while for get the reffalt table, if your species with a big reference genome, then will take more time to get the data result. my demo was the  [barley](ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/hordeum_vulgare) specie and needs more than five hours to finish. And i will add a simple that get the refflab quickly than this pipeline first step which using Python Script (in getrefflat dir).
 
 ```linux
 # Pipeline Usage
@@ -53,6 +53,7 @@ $ nohup perl refflat.pipeline.pl -chrlist ref.chrlist -gff ref.gff3 -vcf pop.rec
 > or a new sample way to get the reflattable, just using convert command  lines, which using [gff3ToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred) or if you have gtf file format, and then using use [gtfToGenePred](http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/gtfToGenePred)
 
 ```linux
+$ python get.refflat.py --gff ref.gff --out refflat.table
 $ gff3ToGenePred Mus_musculus.GRCm38.96.gff3 Mus_musculus.GRCm38.96.Pred && perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
 $ gtfToGenePred Mus_musculus.GRCm38.96.gtf Mus_musculus.GRCm38.96.Pred && perl getreflat.Pred.pl -int Mus_musculus.GRCm38.96.Pred -out Mus_musculus.GRCm38.96.refflat
 ```
