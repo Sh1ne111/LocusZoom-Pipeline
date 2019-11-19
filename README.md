@@ -1,8 +1,8 @@
 ## LocusZoom Pipeline visualization of GWAS (eQTL, EWAS TWAS and MWAS)  regional results for research and publication <a href="Fig/locuszoom.png"><img src="Fig/locuszoom.png" align="right" alt="logo" height="250" width="450" /></a>
 
-  [LocusZoom](http://locuszoom.org/) is amazing tool for dataViz. It is so comfortable to visual human species GWAS or metal GWAS result etc, though. The author didn't provided a tool to how to prepare the refflat table like UCSC brower format. Cause the project needed, here, i wrote a pipeline to get the refFlat tabel and snp.pos and snp.set from any species and only need you to provide the annotation of genome (genome annotation file from the NCBI or ensembl or somewhere reasonable) and the SNP calling vcf file from your are interested in research result. And a pipleine for calculating the recombination rates also for any species. The details as following:
+  [LocusZoom](http://locuszoom.org/) is amazing tool for dataViz. It is so comfortable to visual human species GWAS or metal GWAS result etc, though. The author didn't provided a tool to how to prepare the refflat table like UCSC brower format and not fit for others species. Cause the project needed, here, i wrote the pipeline to get the refFlat tabel and snp.pos and snp.set from any species and only need you to provide the annotation of genome (genome annotation file from the NCBI or ensembl or somewhere reasonable) and the SNP calling vcf file from your are interested in research did. And it can calculate the recombination rates for any species. The details as following:
 
-### Here were two eQTLs example result 
+### Here were two eQTLs example result from barley 
 
 1. LocusZoom plot for barley eQTL(chr2:14981819) regional result with gene: HORVU0Hr1G019610 10Mb window size.
 
@@ -16,7 +16,7 @@
 
 #### How to get the refFlat and snp position table
 
-> The [refFlat](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as) table mirrors what is currently supplied by the UCSC database, [format](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as). You need to qsub my Pipeline, cause it will take a while for get the reffalt table, if your species with a big reference genome, then will take more time to get the data result. my demo was the  [barley](ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/hordeum_vulgare) specie and needs more than five hours for now. And i will add a simple that get the refflab quickly than this pipeline times in the futher in Python Script.
+> The [refFlat](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as) table mirrors what is currently supplied by the UCSC database, [format](https://genome-source.gi.ucsc.edu/gitlist/kent.git/raw/master/src/hg/lib/refFlat.as). You need to qsub my Pipeline, cause it will take a while for get the reffalt table, if your species with a big reference genome, then will take more time to get the data result. my demo was the  [barley](ftp://ftp.ensemblgenomes.org/pub/plants/release-44/gff3/hordeum_vulgare) specie and needs more than five hours to finish. And i will add a simple that get the refflab quickly than this pipeline first step which using Python Script (in bin dir).
 
 ```linux
 # Pipeline Usage
@@ -77,13 +77,13 @@ $ le chr.list |perl -ne 'chomp;`vcftools --vcf pop.vcf --chr $_ --recode --out p
 ```linux
 $ java -jar beagle.11Mar19.69c.jar gt=pop.recode.vcf.gz out=pop.phased.vcf.gz
 ```
-> If your genotype already phased and impution, i wrote a perl script for get the data format for FastEPRR format from your vcf genotype file.
+> If your genotype already phased and impution, which can use my perl script to get the data format for FastEPRR format from your vcf genotype file .
  
 ```linux
 $ perl get.FastEPRR.pl -vcf pop.recode.vcf -out pop.phased.vcf 
 ```
 
-> Make sure your chromesome in your vcf files AS numeric. If not, you can run a one liner perl for changing the string to numeric, as like:
+> Make sure your chromesome in your vcf files AS numeric. If not, you can run a one liner perl for changing the string to numeric, running:
 
 ```linux
 $ less *.vcf |perl -ne 'chomp;if(/#/){print "$_\n"}else{($chr,$all)=split/\s+/,$_,2;$chr=~s/chr(any type in your file to replace)//g;print "$chr\t$all\n"}' > pop.vcf
